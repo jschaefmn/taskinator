@@ -1,12 +1,18 @@
 var formEl = document.querySelector("#task-form");
 var tasksToDoEl = document.querySelector("#tasks-to-do");
 
-var createFormHandler = function (event) {
+var taskFormHandler = function (event) {
 
   event.preventDefault();
 
   var taskNameInput = document.querySelector("input[name='task-name']").value;
   var taskTypeInput = document.querySelector("select[name='task-type']").value;
+
+  // check if input values are empty strings
+  if (!taskNameInput || !taskTypeInput) {
+    alert("You need to fill out the task form!");
+    return false;
+  }
 
   // package data up as an object
   var taskDataObj = {
@@ -36,4 +42,4 @@ var creatTaskEl = function (taskDataObj) {
   tasksToDoEl.appendChild(listItemEl);
 }
 
-formEl.addEventListener("submit", createFormHandler);
+formEl.addEventListener("submit", taskFormHandler);
