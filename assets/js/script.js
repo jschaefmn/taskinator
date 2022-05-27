@@ -99,9 +99,6 @@ var createTaskEl = function (taskDataObj) {
 
   // increase task counter for next unique id
   taskIdCounter++;
-
-  console.log(taskDataObj);
-  console.log(taskDataObj.status);
 }
 
 var createTaskActions = function (taskId) {
@@ -218,7 +215,6 @@ var taskStatusChangeHandler = function (event) {
       tasks[i].status = statusValue;
     }
   }
-  console.log(tasks);
   saveTasks();
 }
 
